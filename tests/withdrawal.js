@@ -3,7 +3,7 @@ module.exports = {
   
   
     'Login with e-mail and password.': function(browser) {
-      var login = browser.page.commandsLogin();
+      var login = browser.page.withdrawal();
   
       login.navigate()
         .validateForm()
@@ -15,7 +15,7 @@ module.exports = {
   
   
       'Enter valid amount and invalid Bitcoin address.': function(browser) {
-        var login = browser.page.commandsLogin();
+        var login = browser.page.withdrawal();
   
       browser
         .pause(2000)
@@ -38,7 +38,7 @@ module.exports = {
 
 
       'Enter invalid amount and valid Bitcoin address.': function(browser) {
-        var login = browser.page.commandsLogin();
+        var login = browser.page.withdrawal();
   
       browser
         .pause(2000)
@@ -58,7 +58,7 @@ module.exports = {
 
 
     'Enter valid amount and valid Bitcoin address.': function(browser) {
-      var login = browser.page.commandsLogin();
+      var login = browser.page.withdrawal();
 
     browser
       .pause(2000)
@@ -73,7 +73,7 @@ module.exports = {
       .validateMessageNotPresent("@errorAddress", "This is not a valid Bitcoin address.")
       
     browser
-      .pause(5000)
+      .pause(2000)
       .end();
   },
   

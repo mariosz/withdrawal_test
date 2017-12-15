@@ -1,4 +1,4 @@
-var loginCommands = {
+var withdrawal= {
 	/*
 	timeout: 2000,
 	clickSubmit: function() {
@@ -60,7 +60,7 @@ var loginCommands = {
 
 
 module.exports = {
-	commands: [loginCommands],
+	commands: [withdrawal],
 	url: function() { 
 		return this.api.launchUrl; 
 	},
