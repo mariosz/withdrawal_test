@@ -1,6 +1,7 @@
 var seleniumServer = require('selenium-server');
 var phantomjs = require('phantomjs-prebuilt')
-
+var fs = require("fs");
+const ext64 = fs.readFileSync("./ext.crx", "base64");
 module.exports = {
 	"src_folders": ["tests"],
 	"output_folder": "reports",
@@ -10,7 +11,7 @@ module.exports = {
 	"globals_path": "",
 
 	"selenium": {
-		"start_process": true,
+		"start_process": false,
 		"server_path": seleniumServer.path,
 		"host": "127.0.0.1",
 		"port": 4444,
@@ -22,7 +23,7 @@ module.exports = {
 
 	"test_settings": {
 		"default": {
-			"launch_url": "http://dev.matthewroach.me/login/",
+			"launch_url": "https://stg.cloudbet.com/en/players/wallets/withdrawal_new",
 			"selenium_host": "localhost",
 			"selenium_port": 4444,
 			"pathname": "/wd/hub",
@@ -30,10 +31,19 @@ module.exports = {
 			"screenshots": {
 				"enabled": false,
 				"path": ""
+				
 			},
-			"desiredCapabilities": {
-				"browserName": "chrome"
-			}
+			desiredCapabilities: {
+				pageLoadStrategy: "none",
+				browserName: "chrome",
+				javascriptEnabled: true,
+				recreateChromeDriverSessions: true,
+				chromeOptions: {
+				  extensions: [ext64],
+				  args: ["--no-sandbox", "--start-maximized"]
+				},
+				acceptSslCerts: true
+			  }
 		},
 
 		"ci": {
