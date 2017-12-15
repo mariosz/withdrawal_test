@@ -36,7 +36,6 @@ module.exports = {
   
 
 
-
       'Enter invalid amount and valid Bitcoin address.': function(browser) {
         var login = browser.page.withdrawal();
   
